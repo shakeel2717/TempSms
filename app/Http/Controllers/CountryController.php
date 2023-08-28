@@ -36,8 +36,9 @@ class CountryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Country $country)
+    public function show($countryName)
     {
+        $country = Country::where('name',$countryName)->where('status',true)->firstOrFail();
         return view('country.show', compact('country'));
     }
 

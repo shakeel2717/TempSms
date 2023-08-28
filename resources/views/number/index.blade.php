@@ -8,7 +8,7 @@
                     <div class="row g-4">
                         @foreach ($numbers as $number)
                             <div class="col-md-4">
-                                <a href="{{ route('country.show', ['country' => $number->country->id]) }}"
+                                <a href="{{ route('number.show', ['number' => $number->number]) }}"
                                     class="text-decoration-none">
                                     <div class="card border-0 border-top border-primary border-5 bg-light text-center">
                                         <div class="flag-area pt-4 mb-3">

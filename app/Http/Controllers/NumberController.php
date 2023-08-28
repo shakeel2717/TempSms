@@ -35,9 +35,10 @@ class NumberController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Number $number)
+    public function show($number)
     {
-        //
+        $number = Number::where('number', $number)->where('status', true)->firstOrFail();
+        return view('number.show', compact('number'));
     }
 
     /**
