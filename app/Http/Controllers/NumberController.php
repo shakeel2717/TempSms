@@ -12,7 +12,7 @@ class NumberController extends Controller
      */
     public function index()
     {
-        $numbers = Number::where('status', true)->get();
+        $numbers = Number::where('status', true)->paginate(10);
         return view('number.index', compact('numbers'));
     }
 

@@ -12,7 +12,7 @@
                 </div>
                 <div class="content-area my-4">
                     <div class="row g-4">
-                        @forelse ($number->messages as $message)
+                        @forelse ($number->messages()->paginate(10) as $message)
                             <div class="col-md-12">
                                 <div class="card border-0 border-start border-primary border-5 bg-light ps-2 shadow">
                                     <div class="card-body">
@@ -38,6 +38,9 @@
                                 </div>
                             </div>
                         @endforelse
+                        <div class="d-flex justify-content-center mt-4">
+                            {{ $number->messages()->paginate(10)->links() }}
+                        </div>
                     </div>
                 </div>
             </div>
