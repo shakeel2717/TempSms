@@ -17,7 +17,7 @@
                                         </div>
                                         <div class="country-name text-center">
                                             <h4 class="text-dark">{{ $country->name }}</h4>
-                                            <h5>+{{ $number->number }}</h5>
+                                            <h5>{{ $number->number }}</h5>
                                         </div>
                                     </div>
                                 </a>

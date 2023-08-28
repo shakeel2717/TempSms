@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('numbers', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('country_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
-            $table->string('number');
-            $table->boolean('status')->default(true);
+            $table->foreignId('number_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('from')->default("Unknown");
+            $table->longText('message')->nullable();
+            $table->timestamp('received_at')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('numbers');
+        Schema::dropIfExists('messages');
     }
 };

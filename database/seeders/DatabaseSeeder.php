@@ -46,25 +46,25 @@ class DatabaseSeeder extends Seeder
 
         $number = new Number();
         $number->country_id = $country->id;
-        $number->number = 92456456789;
+        $number->number = "+92456456789";
         $number->save();
 
 
         $number = new Number();
         $number->country_id = $country->id;
-        $number->number = 92456345343;
+        $number->number = "+92456345343";
         $number->save();
 
 
         $number = new Number();
         $number->country_id = $country->id;
-        $number->number = 924523426789;
+        $number->number = "+924523426789";
         $number->save();
 
 
         $number = new Number();
         $number->country_id = $country->id;
-        $number->number = 92456444534;
+        $number->number = "+92456444534";
         $number->save();
 
         $country = new Country();
@@ -95,27 +95,27 @@ class DatabaseSeeder extends Seeder
 
         $number = new Number();
         $number->country_id = $country->id;
-        $number->number = 91456456789;
+        $number->number = "+91456456789";
         $number->save();
 
         $number = new Number();
         $number->country_id = $country->id;
-        $number->number = 9143423789;
+        $number->number = "+9143423789";
         $number->save();
 
         $number = new Number();
         $number->country_id = $country->id;
-        $number->number = 914564564543;
+        $number->number = "+914564564543";
         $number->save();
 
         $number = new Number();
         $number->country_id = $country->id;
-        $number->number = 91456456754;
+        $number->number = "+91456456754";
         $number->save();
 
         $number = new Number();
         $number->country_id = $country->id;
-        $number->number = 914564345389;
+        $number->number = "+914564345389";
         $number->save();
     }
 }

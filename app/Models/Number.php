@@ -19,4 +19,9 @@ class Number extends Model
     {
         return $this->belongsTo(Country::class);
     }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class)->latest();
+    }
 }

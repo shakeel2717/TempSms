@@ -3,12 +3,16 @@
     <section class="my-4">
         <div class="container">
             <div class="card card-body shadow-lg border-0">
-                <h2 class="card-title text-primary">Temporary phone numbers of all countries</h2>
+                <h3 class="card-title text-primary">Receive SMS Online / Temporary Phone Number</h3>
+                <p>You can receive SMS online with the listed numbers at SMS24. You can use the numbers to sign up or verify
+                    for any services like Telegram, Facebook, Google, Gmail, WhatsApp, Viber, Line, WeChat, KakaoTalk etc.
+                </p>
+                <h2>Receive SMS from around the world</h2>
                 <div class="content-area my-4">
                     <div class="row g-4">
                         @foreach ($countries as $country)
                             <div class="col-md-4">
-                                <a href="{{ route('country.show', ['country' => $country->id]) }}"
+                                <a href="{{ route('country.show', ['country' => $country->name]) }}"
                                     class="text-decoration-none">
                                     <div class="card border-0 border-top border-primary border-5 bg-light text-center">
                                         <div class="flag-area pt-4 mb-3">
