@@ -18,3 +18,4 @@ Route::post('/api/webhook/sms', [WebHookController::class, 'sms'])->name('webhoo
 
 
 require __DIR__ . '/auth.php';
+require __DIR__ . '/admin.php';

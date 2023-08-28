@@ -1,47 +1,52 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
-
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
+@extends('layouts.auth')
+@section('form')
+    <div class="block block-rounded mb-0">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">Sign In</h3>
+            <div class="block-options">
+                <a class="btn-block-option fs-sm" href="op_auth_reminder.html">Forgot
+                    Password?</a>
+                <a class="btn-block-option" href="op_auth_signup.html" data-bs-toggle="tooltip" data-bs-placement="left"
+                    title="New Account">
+                    <i class="fa fa-user-plus"></i>
                 </a>
-            @endif
-
-            <x-primary-button class="ml-3">
-                {{ __('Log in') }}
-            </x-primary-button>
+            </div>
         </div>
-    </form>
-</x-guest-layout>
+        <div class="block-content">
+            <div class="p-sm-3 px-lg-4 px-xxl-5 py-lg-5">
+                <h1 class="h2 mb-1">{{ env('APP_NAME') }}</h1>
+                <p class="fw-medium text-muted">
+                    Welcome, please login.
+                </p>
+                <form class="" action="{{ route('login') }}" method="POST">
+                    @csrf
+                    <div class="py-3">
+                        <div class="mb-4">
+                            <input type="text" class="form-control form-control-alt form-control-lg" id="username"
+                                name="username" placeholder="Username">
+                        </div>
+                        <div class="mb-4">
+                            <input type="password" class="form-control form-control-alt form-control-lg" id="password"
+                                name="password" placeholder="Password">
+                        </div>
+                        <div class="mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="login-remember"
+                                    name="login-remember">
+                                <label class="form-check-label" for="login-remember">Remember
+                                    Me</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-md-6 col-xl-5">
+                            <button type="submit" class="btn w-100 btn-alt-primary">
+                                <i class="fa fa-fw fa-sign-in-alt me-1 opacity-50"></i> Sign In
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+@endsection
