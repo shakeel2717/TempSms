@@ -14,4 +14,9 @@ class Number extends Model
         'number',
         'status',
     ];
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
 }

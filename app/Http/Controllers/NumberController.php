@@ -12,7 +12,8 @@ class NumberController extends Controller
      */
     public function index()
     {
-        //
+        $numbers = Number::where('status', true)->get();
+        return view('number.index', compact('numbers'));
     }
 
     /**

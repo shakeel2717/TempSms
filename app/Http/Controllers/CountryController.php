@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Country;
 use Illuminate\Http\Request;
+use PHPUnit\Framework\Constraint\Count;
 
 class CountryController extends Controller
 {
@@ -12,7 +13,8 @@ class CountryController extends Controller
      */
     public function index()
     {
-        //
+        $countries = Country::where('status', true)->get();
+        return view('country.index', compact('countries'));
     }
 
     /**
