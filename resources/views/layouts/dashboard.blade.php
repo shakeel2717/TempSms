@@ -16,6 +16,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/media/favicons/apple-touch-icon-180x180.png">
 
     <link rel="stylesheet" id="css-main" href="/assets/css/oneui.min.css">
+    @yield('head')
+    @vite(['resources/js/app.js'])
+    @livewireStyles()
 </head>
 
 <body>
@@ -23,38 +26,76 @@
     <div id="page-container"
         class="sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-narrow">
         <nav id="sidebar" aria-label="Main Navigation">
-            <!-- Side Header -->
             <div class="content-header">
-                <!-- Logo -->
                 <a class="fw-semibold text-dual" href="index.html">
                     <span class="smini-visible">
                         <i class="fa fa-circle-notch text-primary"></i>
                     </span>
                     <span class="smini-hide fs-5 tracking-wider">{{ env('APP_NAME') }}</span>
                 </a>
-                <!-- END Logo -->
 
-                <!-- Extra -->
                 <div>
-                    <!-- Dark Mode -->
+
                     <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="layout"
                         data-action="dark_mode_toggle">
                         <i class="far fa-moon"></i>
                     </button>
-                    <!-- END Dark Mode -->
 
-                    <!-- Close Sidebar, Visible only on mobile screens -->
                     <a class="d-lg-none btn btn-sm btn-alt-secondary ms-1" data-toggle="layout"
                         data-action="sidebar_close" href="javascript:void(0)">
                         <i class="fa fa-fw fa-times"></i>
                     </a>
                 </div>
             </div>
-            <!-- END Side Header -->
-        </nav>
-        <!-- END Sidebar -->
+            <div class="js-sidebar-scroll">
+                <div class="content-side">
+                    <ul class="nav-main">
+                        <li class="nav-main-item">
+                            <a class="nav-main-link active" href="{{ route('admin.index') }}">
+                                <i class="nav-main-link-icon si si-speedometer"></i>
+                                <span class="nav-main-link-name">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-heading">Country Management</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.countries.create') }}">
+                                <i class="nav-main-link-icon si si-speedometer"></i>
+                                <span class="nav-main-link-name">Add New Countries</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.countries.index') }}">
+                                <i class="nav-main-link-icon si si-speedometer"></i>
+                                <span class="nav-main-link-name">All Countries</span>
+                            </a>
+                        </li>
 
-        <!-- Header -->
+                        <li class="nav-main-heading">Number Management</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.numbers.create') }}">
+                                <i class="nav-main-link-icon si si-speedometer"></i>
+                                <span class="nav-main-link-name">Add New Number</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.numbers.index') }}">
+                                <i class="nav-main-link-icon si si-speedometer"></i>
+                                <span class="nav-main-link-name">All Number</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-main-heading">Message Management</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.messages.index') }}">
+                                <i class="nav-main-link-icon si si-speedometer"></i>
+                                <span class="nav-main-link-name">All Messages</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
         <header id="page-header">
             <div class="content-header">
                 <div class="d-flex align-items-center">
@@ -69,14 +110,13 @@
                     </button>
                 </div>
 
-                <!-- Right Section -->
                 <div class="d-flex align-items-center">
-                    <!-- User Dropdown -->
+
                     <div class="dropdown d-inline-block ms-2">
                         <button type="button" class="btn btn-sm btn-alt-secondary d-flex align-items-center"
                             id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
-                            <img class="rounded-circle" src="assets/media/avatars/avatar10.jpg" alt="Header Avatar"
+                            <img class="rounded-circle" src="/assets/media/avatars/avatar10.jpg" alt="Header Avatar"
                                 style="width: 21px;">
                             <span class="d-none d-sm-inline-block ms-2">{{ auth()->user()->name }}</span>
                             <i class="fa fa-fw fa-angle-down d-none d-sm-inline-block opacity-50 ms-1 mt-1"></i>
@@ -85,7 +125,7 @@
                             aria-labelledby="page-header-user-dropdown">
                             <div class="p-3 text-center bg-body-light border-bottom rounded-top">
                                 <img class="img-avatar img-avatar48 img-avatar-thumb"
-                                    src="assets/media/avatars/avatar10.jpg" alt="">
+                                    src="/assets/media/avatars/avatar10.jpg" alt="">
                                 <p class="mt-2 mb-0 fw-medium">{{ auth()->user()->name }}</p>
                                 <p class="mb-0 text-muted fs-sm fw-medium">{{ auth()->user()->email }}</p>
                             </div>
@@ -102,9 +142,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- END User Dropdown -->
 
-                    <!-- Notifications Dropdown -->
                     <div class="dropdown d-inline-block ms-2">
                         <button type="button" class="btn btn-sm btn-alt-secondary"
                             id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
@@ -130,9 +168,6 @@
                 </div>
             </div>
 
-
-            <!-- Header Loader -->
-            <!-- Please check out the Loaders page under Components category to see examples of showing/hiding it -->
             <div id="page-header-loader" class="overlay-header bg-body-extra-light">
                 <div class="content-header">
                     <div class="w-100 text-center">
@@ -140,9 +175,7 @@
                     </div>
                 </div>
             </div>
-            <!-- END Header Loader -->
         </header>
-        <!-- END Header -->
 
         @yield('content')
         <footer id="page-footer" class="bg-body-light">
@@ -161,6 +194,10 @@
     <script src="/assets/js/plugins/chart.js/chart.umd.js"></script>
 
     <script src="/assets/js/pages/be_pages_dashboard.min.js"></script>
+    @yield('footer')
+    <x-alert />
+
+    @livewireScripts()
 </body>
 
 </html>
