@@ -28,7 +28,7 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="javascript:void(0)">
+                                href="{{ route('admin.countries.index') }}">
                                 <span>View all Countries</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>
@@ -40,7 +40,7 @@
                         <div
                             class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                             <dl class="mb-0">
-                                <dt class="fs-3 fw-bold">{{ $countries->where('status',true)->count() }}</dt>
+                                <dt class="fs-3 fw-bold">{{ $countries->where('status', true)->count() }}</dt>
                                 <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Active Countries</dd>
                             </dl>
                             <div class="item item-rounded-lg bg-body-light">
@@ -49,7 +49,7 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="javascript:void(0)">
+                                href="{{ route('admin.countries.index') }}">
                                 <span>View all Countries</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>
@@ -70,7 +70,7 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="javascript:void(0)">
+                                href="{{ route('admin.numbers.index') }}">
                                 <span>View all Numbers</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>
@@ -91,7 +91,7 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="javascript:void(0)">
+                                href="{{ route('admin.messages.index') }}">
                                 <span>View all Messages</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>

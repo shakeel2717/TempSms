@@ -192,6 +192,15 @@ final class AllMessages extends PowerGridComponent
     }
     */
 
+
+
+    public function onUpdatedEditable(string $id, string $field, string $value): void
+    {
+        Message::query()->find($id)->update([
+            $field => $value,
+        ]);
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Actions Rules
