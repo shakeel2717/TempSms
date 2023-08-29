@@ -11,11 +11,11 @@
     <meta name="author" content="Asan Webs Development">
     <meta name="robots" content="noindex, nofollow">
 
-    <link rel="shortcut icon" href="assets/media/favicons/favicon.png">
+    <link rel="shortcut icon" href="/assets/media/favicons/favicon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="assets/media/favicons/favicon-192x192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/media/favicons/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/media/favicons/apple-touch-icon-180x180.png">
 
-    <link rel="stylesheet" id="css-main" href="assets/css/oneui.min.css">
+    <link rel="stylesheet" id="css-main" href="/assets/css/oneui.min.css">
 </head>
 
 <body>
@@ -39,10 +39,10 @@
         </main>
     </div>
     <!-- END Page Container -->
-    <script src="assets/js/oneui.app.min.js"></script>
-    <script src="assets/js/lib/jquery.min.js"></script>
-    <script src="assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
-    <script src="assets/js/pages/op_auth_signin.min.js"></script>
+    <script src="/assets/js/oneui.app.min.js"></script>
+    <script src="/assets/js/lib/jquery.min.js"></script>
+    <script src="/assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="/assets/js/pages/op_auth_signin.min.js"></script>
     <x-alert/>
 </body>
 

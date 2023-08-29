@@ -4,7 +4,7 @@
         <div class="block-header block-header-default">
             <h3 class="block-title">Sign In</h3>
             <div class="block-options">
-                <a class="btn-block-option fs-sm" href="op_auth_reminder.html">Forgot
+                <a class="btn-block-option fs-sm" href="{{ route('password.email') }}">Forgot
                     Password?</a>
                 <a class="btn-block-option" href="op_auth_signup.html" data-bs-toggle="tooltip" data-bs-placement="left"
                     title="New Account">
