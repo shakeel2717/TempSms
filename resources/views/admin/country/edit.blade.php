@@ -19,25 +19,26 @@
             <div class="row items-push">
                 <div class="col-md-8 mx-auto">
                     <div class="card card-body">
-                        <form action="{{ route('admin.countries.store') }}" method="POST">
+                        <form action="{{ route('admin.countries.update',['country' => $country->id]) }}" method="POST">
                             @csrf
+                            @method("PATCH")
                             <div class="from-group mb-2">
                                 <label for="name">Country Name</label>
                                 <input type="text" name="name" id="name" class="form-control"
-                                    placeholder="Country Name">
+                                    placeholder="Country Name" value="{{ $country->name }}">
                             </div>
                             <div class="from-group mb-2">
                                 <label for="flag">Country Flag Link</label>
                                 <input type="text" name="flag" id="flag" class="form-control"
-                                    placeholder="Country Flag Link">
+                                    placeholder="Country Flag Link" value="{{ $country->flag }}">
                             </div>
                             <div class="from-group mb-2">
                                 <label for="description">Country Description</label>
-                                <textarea class="js-simplemde" id="simplemde" name="description"></textarea>
+                                <textarea class="js-simplemde" id="simplemde" name="description">{{ $country->description }}</textarea>
                             </div>
                             <div class="from-group mb-2">
                                 <button type="submit" class="btn btn-primary btn-lg mt-4"><i class="fa fa-plus-square"
-                                        aria-hidden="true"></i> Add Country</button>
+                                        aria-hidden="true"></i> Update Country</button>
                             </div>
                         </form>
                     </div>

@@ -58,7 +58,7 @@ class CountryController extends Controller
      */
     public function edit(Country $country)
     {
-        return view('admin.country.create', compact('country'));
+        return view('admin.country.edit', compact('country'));
     }
 
     /**
