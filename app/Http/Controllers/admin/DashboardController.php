@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Country;
+use App\Models\Message;
+use App\Models\Number;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -12,7 +15,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard.index');
+        $countries = Country::all();
+        $numbers = Number::all();
+        $messages = Message::all();
+        return view('admin.dashboard.index', compact('countries','numbers','messages'));
     }
 
     /**
