@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Country;
+use App\Models\Number;
 use Illuminate\Http\Request;
 
 class NumberController extends Controller
@@ -12,7 +14,7 @@ class NumberController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.number.index');
     }
 
     /**
@@ -20,7 +22,8 @@ class NumberController extends Controller
      */
     public function create()
     {
-        //
+        $countries = Country::where('status', true)->get();
+        return view('admin.number.create', compact('countries'));
     }
 
     /**
@@ -28,7 +31,18 @@ class NumberController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'country_id' => 'required|string',
+            'number' => 'required|string',
+        ]);
+
+        // storing this in the database
+        $number = new Number();
+        $number->country_id = $validatedData['country_id'];
+        $number->number = $validatedData['number'];
+        $number->save();
+
+        return redirect()->route('admin.numbers.index')->with('success', 'Number Added Successfully');
     }
 
     /**

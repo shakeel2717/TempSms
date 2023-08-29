@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\admin;
 
-use App\Models\Country;
+use App\Models\Number;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
@@ -10,14 +10,12 @@ use PowerComponents\LivewirePowerGrid\Traits\{ActionButton, WithExport};
 use PowerComponents\LivewirePowerGrid\Filters\Filter;
 use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridColumns};
 
-final class AllCountries extends PowerGridComponent
+final class AllNumbers extends PowerGridComponent
 {
     use ActionButton;
     use WithExport;
 
-    public $name;
-    public $flag;
-    public $status;
+    public $number;
 
     /*
     |--------------------------------------------------------------------------
@@ -52,11 +50,11 @@ final class AllCountries extends PowerGridComponent
     /**
      * PowerGrid datasource.
      *
-     * @return Builder<\App\Models\Country>
+     * @return Builder<\App\Models\Number>
      */
     public function datasource(): Builder
     {
-        return Country::query();
+        return Number::query();
     }
 
     /*
@@ -74,7 +72,11 @@ final class AllCountries extends PowerGridComponent
      */
     public function relationSearch(): array
     {
-        return [];
+        return [
+            "Country" => [
+                'name'
+            ]
+        ];
     }
 
     /*
@@ -92,15 +94,14 @@ final class AllCountries extends PowerGridComponent
     {
         return PowerGrid::columns()
             ->addColumn('id')
-            ->addColumn('name')
+            ->addColumn('country', fn (Number $model) => e($model->country->name))
+            ->addColumn('number')
 
             /** Example of custom column using a closure **/
-            ->addColumn('name_lower', fn (Country $model) => strtolower(e($model->name)))
+            ->addColumn('number_lower', fn (Number $model) => strtolower(e($model->number)))
 
-            ->addColumn('flag')
-            ->addColumn('description_short', fn (Country $model) => str()->words($model->description, 10))
             ->addColumn('status')
-            ->addColumn('created_at_formatted', fn (Country $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'));
+            ->addColumn('created_at_formatted', fn (Number $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'));
     }
 
     /*
@@ -121,18 +122,10 @@ final class AllCountries extends PowerGridComponent
     {
         return [
             Column::make('Id', 'id'),
-            Column::make('Name', 'name')
+            Column::make('Country id', 'country'),
+            Column::make('Number', 'number')
                 ->sortable()
                 ->editOnClick()
-                ->searchable(),
-
-            Column::make('Flag', 'flag')
-                ->sortable()
-                ->editOnClick()
-                ->searchable(),
-
-            Column::make('Description', 'description_short', 'description')
-                ->sortable()
                 ->searchable(),
 
             Column::make('Status', 'status')
@@ -152,8 +145,7 @@ final class AllCountries extends PowerGridComponent
     public function filters(): array
     {
         return [
-            Filter::inputText('name')->operators(['contains']),
-            Filter::inputText('flag')->operators(['contains']),
+            Filter::inputText('number')->operators(['contains']),
             Filter::boolean('status'),
             Filter::datetimepicker('created_at'),
         ];
@@ -168,50 +160,45 @@ final class AllCountries extends PowerGridComponent
     */
 
     /**
-     * PowerGrid Country Action Buttons.
+     * PowerGrid Number Action Buttons.
      *
      * @return array<int, Button>
      */
 
-
+    /*
     public function actions(): array
     {
-        return [
-            Button::make('edit', 'Edit')
-                ->class('btn btn-primary')
-                ->target("")
-                ->route('admin.countries.edit', ['country' => 'id']),
+       return [
+           Button::make('edit', 'Edit')
+               ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
+               ->route('number.edit', function(\App\Models\Number $model) {
+                    return $model->id;
+               }),
 
-            //    Button::make('edit', 'Edit')
-            //        ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
-            //        ->route('country.edit', function(\App\Models\Country $model) {
-            //             return $model->id;
-            //        }),
-
-            //    Button::make('destroy', 'Delete')
-            //        ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
-            //        ->route('country.destroy', function(\App\Models\Country $model) {
-            //             return $model->id;
-            //        })
-            //        ->method('delete')
+           Button::make('destroy', 'Delete')
+               ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
+               ->route('number.destroy', function(\App\Models\Number $model) {
+                    return $model->id;
+               })
+               ->method('delete')
         ];
     }
-
+    */
 
     public function onUpdatedToggleable(string $id, string $field, string $value): void
     {
-        Country::query()->find($id)->update([
+        Number::query()->find($id)->update([
             $field => $value,
         ]);
     }
+
 
     public function onUpdatedEditable(string $id, string $field, string $value): void
     {
-        Country::query()->find($id)->update([
+        Number::query()->find($id)->update([
             $field => $value,
         ]);
     }
-
 
     /*
     |--------------------------------------------------------------------------
@@ -222,7 +209,7 @@ final class AllCountries extends PowerGridComponent
     */
 
     /**
-     * PowerGrid Country Action Rules.
+     * PowerGrid Number Action Rules.
      *
      * @return array<int, RuleActions>
      */
@@ -234,7 +221,7 @@ final class AllCountries extends PowerGridComponent
 
            //Hide button edit for ID 1
             Rule::button('edit')
-                ->when(fn($country) => $country->id === 1)
+                ->when(fn($number) => $number->id === 1)
                 ->hide(),
         ];
     }
