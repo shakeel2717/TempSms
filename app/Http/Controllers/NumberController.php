@@ -39,11 +39,11 @@ class NumberController extends Controller
 
     public function show($number)
     {
+        $number = Number::where('number', $number)->where('status', true)->firstOrFail();
         if(cache()->get('number' . $number)){
-            $number = Number::where('number', $number)->where('status', true)->firstOrFail();
             return view('number.show', compact('number'));
         } else {
-            cache()->remember('number' . $number, 20, function () use ($number) {
+            cache()->remember('number' . $number, 30, function () use ($number) {
                 return true;
             });
             return view('number.ads', compact('number'));

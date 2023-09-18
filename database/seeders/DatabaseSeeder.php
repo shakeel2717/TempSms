@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Advertisement;
 use App\Models\Country;
 use App\Models\Number;
 use App\Models\User;
@@ -31,5 +32,140 @@ class DatabaseSeeder extends Seeder
         $country->flag = 'https://flagcdn.com/w160/pk.png';
         $country->description = "The country is far from the rest of the world, but it is a mistake to think that everything is upside down. The websites of Australian companies have an unusual design for us, but this is due to the fact that they have taken a different path to improve the work on the Internet.";
         $country->save();
+
+        $country = new Country();
+        $country->name = 'India';
+        $country->flag = 'https://flagcdn.com/w160/in.png';
+        $country->description = "The country is far from the rest of the world, but it is a mistake to think that everything is upside down. The websites of Australian companies have an unusual design for us, but this is due to the fact that they have taken a different path to improve the work on the Internet.";
+        $country->save();
+
+        $country = new Country();
+        $country->name = 'China';
+        $country->flag = 'https://flagcdn.com/w160/cn.png';
+        $country->description = "The country is far from the rest of the world, but it is a mistake to think that everything is upside down. The websites of Australian companies have an unusual design for us, but this is due to the fact that they have taken a different path to improve the work on the Internet.";
+        $country->save();
+
+        $country = new Country();
+        $country->name = 'USA';
+        $country->flag = 'https://flagcdn.com/w160/us.png';
+        $country->description = "The country is far from the rest of the world, but it is a mistake to think that everything is upside down. The websites of Australian companies have an unusual design for us, but this is due to the fact that they have taken a different path to improve the work on the Internet.";
+        $country->save();
+
+        $country = new Country();
+        $country->name = 'Japan';
+        $country->flag = 'https://flagcdn.com/w160/jp.png';
+        $country->description = "The country is far from the rest of the world, but it is a mistake to think that everything is upside down. The websites of Australian companies have an unusual design for us, but this is due to the fact that they have taken a different path to improve the work on the Internet.";
+        $country->save();
+
+        $country = new Country();
+        $country->name = 'Pakistan';
+        $country->flag = 'https://flagcdn.com/w160/pk.png';
+        $country->description = "The country is far from the rest of the world, but it is a mistake to think that everything is upside down. The websites of Australian companies have an unusual design for us, but this is due to the fact that they have taken a different path to improve the work on the Internet.";
+        $country->save();
+
+        $country = new Country();
+        $country->name = 'India';
+        $country->flag = 'https://flagcdn.com/w160/in.png';
+        $country->description = "The country is far from the rest of the world, but it is a mistake to think that everything is upside down. The websites of Australian companies have an unusual design for us, but this is due to the fact that they have taken a different path to improve the work on the Internet.";
+        $country->save();
+
+        $country = new Country();
+        $country->name = 'China';
+        $country->flag = 'https://flagcdn.com/w160/cn.png';
+        $country->description = "The country is far from the rest of the world, but it is a mistake to think that everything is upside down. The websites of Australian companies have an unusual design for us, but this is due to the fact that they have taken a different path to improve the work on the Internet.";
+        $country->save();
+
+        $country = new Country();
+        $country->name = 'USA';
+        $country->flag = 'https://flagcdn.com/w160/us.png';
+        $country->description = "The country is far from the rest of the world, but it is a mistake to think that everything is upside down. The websites of Australian companies have an unusual design for us, but this is due to the fact that they have taken a different path to improve the work on the Internet.";
+        $country->save();
+
+        $country = new Country();
+        $country->name = 'Japan';
+        $country->flag = 'https://flagcdn.com/w160/jp.png';
+        $country->description = "The country is far from the rest of the world, but it is a mistake to think that everything is upside down. The websites of Australian companies have an unusual design for us, but this is due to the fact that they have taken a different path to improve the work on the Internet.";
+        $country->save();
+
+        $country = new Country();
+        $country->name = 'Pakistan';
+        $country->flag = 'https://flagcdn.com/w160/pk.png';
+        $country->description = "The country is far from the rest of the world, but it is a mistake to think that everything is upside down. The websites of Australian companies have an unusual design for us, but this is due to the fact that they have taken a different path to improve the work on the Internet.";
+        $country->save();
+
+        $country = new Country();
+        $country->name = 'India';
+        $country->flag = 'https://flagcdn.com/w160/in.png';
+        $country->description = "The country is far from the rest of the world, but it is a mistake to think that everything is upside down. The websites of Australian companies have an unusual design for us, but this is due to the fact that they have taken a different path to improve the work on the Internet.";
+        $country->save();
+
+        $country = new Country();
+        $country->name = 'China';
+        $country->flag = 'https://flagcdn.com/w160/cn.png';
+        $country->description = "The country is far from the rest of the world, but it is a mistake to think that everything is upside down. The websites of Australian companies have an unusual design for us, but this is due to the fact that they have taken a different path to improve the work on the Internet.";
+        $country->save();
+
+        $country = new Country();
+        $country->name = 'USA';
+        $country->flag = 'https://flagcdn.com/w160/us.png';
+        $country->description = "The country is far from the rest of the world, but it is a mistake to think that everything is upside down. The websites of Australian companies have an unusual design for us, but this is due to the fact that they have taken a different path to improve the work on the Internet.";
+        $country->save();
+
+        $country = new Country();
+        $country->name = 'Japan';
+        $country->flag = 'https://flagcdn.com/w160/jp.png';
+        $country->description = "The country is far from the rest of the world, but it is a mistake to think that everything is upside down. The websites of Australian companies have an unusual design for us, but this is due to the fact that they have taken a different path to improve the work on the Internet.";
+        $country->save();
+
+        $country = new Country();
+        $country->name = 'Pakistan';
+        $country->flag = 'https://flagcdn.com/w160/pk.png';
+        $country->description = "The country is far from the rest of the world, but it is a mistake to think that everything is upside down. The websites of Australian companies have an unusual design for us, but this is due to the fact that they have taken a different path to improve the work on the Internet.";
+        $country->save();
+
+        $country = new Country();
+        $country->name = 'India';
+        $country->flag = 'https://flagcdn.com/w160/in.png';
+        $country->description = "The country is far from the rest of the world, but it is a mistake to think that everything is upside down. The websites of Australian companies have an unusual design for us, but this is due to the fact that they have taken a different path to improve the work on the Internet.";
+        $country->save();
+
+        $country = new Country();
+        $country->name = 'China';
+        $country->flag = 'https://flagcdn.com/w160/cn.png';
+        $country->description = "The country is far from the rest of the world, but it is a mistake to think that everything is upside down. The websites of Australian companies have an unusual design for us, but this is due to the fact that they have taken a different path to improve the work on the Internet.";
+        $country->save();
+
+        $country = new Country();
+        $country->name = 'USA';
+        $country->flag = 'https://flagcdn.com/w160/us.png';
+        $country->description = "The country is far from the rest of the world, but it is a mistake to think that everything is upside down. The websites of Australian companies have an unusual design for us, but this is due to the fact that they have taken a different path to improve the work on the Internet.";
+        $country->save();
+
+        $country = new Country();
+        $country->name = 'Japan';
+        $country->flag = 'https://flagcdn.com/w160/jp.png';
+        $country->description = "The country is far from the rest of the world, but it is a mistake to think that everything is upside down. The websites of Australian companies have an unusual design for us, but this is due to the fact that they have taken a different path to improve the work on the Internet.";
+        $country->save();
+
+
+        $ads = new Advertisement();
+        $ads->type = "left";
+        $ads->ad_code = '<img src="/ads/vr-lg.png" alt="Ads" width="300" height="600">';
+        $ads->save();
+
+        $ads = new Advertisement();
+        $ads->type = "skyscraper";
+        $ads->ad_code = '<img src="/ads/hr-lg.png" alt="Ads" width="970" height="250">';
+        $ads->save();
+
+        $ads = new Advertisement();
+        $ads->type = "right";
+        $ads->ad_code = '<img src="/ads/vr-lg.png" alt="Ads" width="300" height="600">';
+        $ads->save();
+
+        $ads = new Advertisement();
+        $ads->type = "footer";
+        $ads->ad_code = '<img src="/ads/hr-sm-xl.png" alt="Ads">';
+        $ads->save();
     }
 }

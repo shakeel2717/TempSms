@@ -3,19 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Advertisement;
-use App\Models\Country;
 use Illuminate\Http\Request;
 
-class LandingPageController extends Controller
+class AdvertisementController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $countries = Country::where('status', true)->get();
-        $advertisements = Advertisement::where('status', true)->get();
-        return view('landing/index', compact('countries', 'advertisements'));
+        return view('admin.ads.index');
     }
 
     /**
@@ -37,7 +34,7 @@ class LandingPageController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Advertisement $advertisement)
     {
         //
     }
@@ -45,7 +42,7 @@ class LandingPageController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Advertisement $advertisement)
     {
         //
     }
@@ -53,7 +50,7 @@ class LandingPageController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Advertisement $advertisement)
     {
         //
     }
@@ -61,7 +58,7 @@ class LandingPageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Advertisement $advertisement)
     {
         //
     }

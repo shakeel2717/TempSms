@@ -83,6 +83,13 @@
                                 <span class="nav-main-link-name">All Number</span>
                             </a>
                         </li>
+                        <li class="nav-main-heading">Advertisement</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.ads.index') }}">
+                                <i class="nav-main-link-icon si si-speedometer"></i>
+                                <span class="nav-main-link-name">Ads Unit</span>
+                            </a>
+                        </li>
 
                         <li class="nav-main-heading">Message Management</li>
                         <li class="nav-main-item">
