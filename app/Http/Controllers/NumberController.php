@@ -40,28 +40,7 @@ class NumberController extends Controller
     public function show($number)
     {
         $number = Number::where('number', $number)->where('status', true)->firstOrFail();
-
-        if (cache()->get('number' . $number)) {
-
-            // checking if timer page is passed
-            if (cache()->get('timer' . $number)) {
-                return view('number.show', compact('number'));
-            } else {
-
-                cache()->remember('timer' . $number, 60 * 5, function () use ($number) {
-                    return true;
-                });
-
-                return view('number.timer', compact('number'));
-            }
-        } else {
-
-            cache()->remember('number' . $number, 60 * 5, function () use ($number) {
-                return true;
-            });
-
-            return view('number.ads', compact('number'));
-        }
+        return view('number.show', compact('number'));
     }
 
     /**
