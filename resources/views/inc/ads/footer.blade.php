@@ -1,0 +1,1 @@
+<img src="/ads/hr-sm-xl.png" alt="Ads">

@@ -7,6 +7,7 @@
                     <img src="{{ $number->country->flag }}" alt="{{ $number->country->name }}" width="120">
                     <h4 class="card-title text-center my-3">{{ $number->country->name }} Phone Number</h4>
                     <h2 class="card-title text-primary text-center my-3">{{ $number->number }}</h2>
+                    @include('inc.ads.sky')
                     <a href="{{ route('number.show', ['number' => $number->number]) }}"
                         class="btn btn-outline-primary">Refresh This Page</a>
                 </div>

@@ -8,6 +8,15 @@
     <title>{{ env('APP_NAME') }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     @yield('styles')
+    <style>
+        .advertisement {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -24,9 +33,24 @@
             </div>
         </div>
     </nav>
-
-    @yield('content')
-
+    <section class="my-4">
+        <div class="container-fluid">
+            <div class="row mb-5">
+                <div class="col-md-2 d-none d-md-block ">
+                    @include('inc.ads.left')
+                </div>
+                <div class="col-md-8">
+                    @yield('content')
+                </div>
+                <div class="col-md-2">
+                    @include('inc.ads.right')
+                </div>
+            </div>
+        </div>
+        <div class="advertisement d-none d-md-block">
+            @include('inc.ads.footer')
+        </div>
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     @yield('scripts')
 </body>
