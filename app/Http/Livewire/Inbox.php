@@ -11,11 +11,13 @@ class Inbox extends Component
     public $showTimerButton = false;
     public $showTimer = false;
     public $timer;
+    public $messages;
     public $showInbox = false;
 
     public function mount()
     {
         $this->timer = 5;
+        $this->fetchNewMessages();
     }
     public function showTimerPage()
     {
@@ -42,6 +44,17 @@ class Inbox extends Component
         $this->showContinueButton = false;
         $this->showTimer = false;
         $this->showInbox = false;
+    }
+
+    public function fetchNewMessages()
+    {
+        sleep(1);
+        $this->messages = $this->number->messages()->get();
+    }
+
+    public function inboxRefresh()
+    {
+        $this->fetchNewMessages();
     }
 
     public function render()
