@@ -14,8 +14,7 @@ class LandingPageController extends Controller
     public function index()
     {
         $countries = Country::where('status', true)->get();
-        $advertisements = Advertisement::where('status', true)->get();
-        return view('landing/index', compact('countries', 'advertisements'));
+        return view('landing/index', compact('countries'));
     }
 
     /**
