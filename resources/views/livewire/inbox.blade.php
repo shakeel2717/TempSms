@@ -6,7 +6,7 @@
                 <h4 class="card-title text-center my-3">{{ $number->country->name }} Phone Number</h4>
                 <h2 class="card-title text-primary text-center my-3">{{ $number->number }}</h2>
                 @include('inc.ads.sky')
-                <button wire:click="inboxRefresh" class="btn btn-outline-primary">Refresh This Page</button>
+                <button wire:click="startInboxTimer" class="btn btn-outline-primary">Refresh This Page</button>
             </div>
             <div class="row" wire:loading>
                 <div class="col-md-12 text-center mt-4">
@@ -15,39 +15,48 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="content-area my-4">
-            <div class="row g-4">
-                @forelse ($messages as $message)
-                    <div class="col-md-12">
-                        <div class="card border-0 border-start border-primary border-5 bg-light ps-2 shadow">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <h5 class="text-primary mb-0">From: {{ $message->from }}</h5>
-                                    <p class="mb-0">{{ now()->parse($message->received_at)->diffForHumans() }}</p>
-                                </div>
-                                <hr>
-                                <p class="mb-0">{{ $message->message }}</p>
-                            </div>
-                        </div>
-                    </div>
-                @empty
-                    <div class="col-md-12">
-                        <div class="card border-0 border-start border-primary border-5 bg-light ps-2 shadow">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <h5 class="text-primary mb-0">No Message Received yet!</h5>
-                                </div>
-                                <hr>
-                                <p class="mb-0">New Message will be show here...</p>
-                            </div>
-                        </div>
-                    </div>
-                @endforelse
-                <div class="d-flex justify-content-center mt-4">
-                    {{-- {{ $number->messages()->paginate(10)->links() }} --}}
+            @if ($inboxTimerSection)
+                <div class="text-center mt-4">
+                    <h2>Please wait <span id="inboxTimer" wire:poll='inboxTimerMethod'>{{ $inboxTimer }}</span>
+                        Seconds
+                    </h2>
                 </div>
-            </div>
+            @else
+                <div class="content-area my-4">
+                    <div class="row g-4">
+                        @forelse ($messages as $message)
+                            <div class="col-md-12">
+                                <div class="card border-0 border-start border-primary border-5 bg-light ps-2 shadow">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <h5 class="text-primary mb-0">From: {{ $message->from }}</h5>
+                                            <p class="mb-0">{{ now()->parse($message->received_at)->diffForHumans() }}
+                                            </p>
+                                        </div>
+                                        <hr>
+                                        <p class="mb-0">{{ $message->message }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @empty
+                            <div class="col-md-12">
+                                <div class="card border-0 border-start border-primary border-5 bg-light ps-2 shadow">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <h5 class="text-primary mb-0">No Message Received yet!</h5>
+                                        </div>
+                                        <hr>
+                                        <p class="mb-0">New Message will be show here...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforelse
+                        <div class="d-flex justify-content-center mt-4">
+                            {{-- {{ $number->messages()->paginate(10)->links() }} --}}
+                        </div>
+                    </div>
+                </div>
+            @endif
         </div>
 </div>
 @elseif ($showContinueButton)
@@ -146,10 +155,10 @@
         @endif
         @if ($showTimerButton)
             <div class="row" id="timer-area">
-                @include('inc.ads.sky')
                 <div class="col-md-12 text-center mb-4">
                     <button wire:click="showInboxPage" class="btn btn-primary btn-lg">Continue to Inbox</button>
                 </div>
+                @include('inc.ads.sky')
             </div>
         @endif
         <p>Moreover, our platform is incredibly user-friendly, making it accessible to individuals with
