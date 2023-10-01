@@ -178,9 +178,13 @@ final class AllCountries extends PowerGridComponent
     {
         return [
             Button::make('edit', 'Edit')
-                ->class('btn btn-primary')
+                ->class('btn btn-primary btn-sm')
                 ->target("")
                 ->route('admin.countries.edit', ['country' => 'id']),
+
+            Button::make('delete', 'Delete')
+                ->class('btn btn-danger btn-sm')
+                ->emit('delete', ['id' => 'id']),
 
             //    Button::make('edit', 'Edit')
             //        ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
@@ -195,6 +199,30 @@ final class AllCountries extends PowerGridComponent
             //        })
             //        ->method('delete')
         ];
+    }
+
+    protected function getListeners(): array
+    {
+        return array_merge(
+            parent::getListeners(),
+            [
+                'delete'   => 'delete',
+                'confirmedDelete' => 'confirmedDelete',
+            ]
+        );
+    }
+
+    public function confirmedDelete($id)
+    {
+        $user = Country::find($id);
+        $user->delete();
+
+        $this->dispatchBrowserEvent('deleted', ['status' => 'Device Deleted Successfully']);
+    }
+
+    public function delete($id)
+    {
+        $this->dispatchBrowserEvent('warning', ['id' => $id['id']]);
     }
 
 
