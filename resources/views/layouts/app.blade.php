@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ env('APP_NAME') }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     @yield('styles')
     <style>
         .advertisement {
@@ -31,6 +32,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 @include('inc.nav')
+                <div class="social">
+                    <a href="#" class="d-flex align-items-center gap-3 nav-link text-white">Telegram <i
+                            class="bi bi-telegram text-white fs-3"></i></a>
+                    {{-- <h4 class="text-white nav-link"></h4> --}}
+                    {{-- <a href="#" class="text-white">Telegram</a> --}}
+                </div>
             </div>
         </div>
     </nav>
