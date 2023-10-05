@@ -7,7 +7,8 @@ use App\Http\Controllers\WebHookController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::redirect('/','/number');
+Route::redirect('/', '/number');
+Route::get('/privacy-policy', [LandingPageController::class, 'privacy'])->name('privacy');
 Route::resource('/', LandingPageController::class);
 Route::resource('/country', CountryController::class);
 Route::resource('/number', NumberController::class);

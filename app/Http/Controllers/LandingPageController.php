@@ -17,6 +17,11 @@ class LandingPageController extends Controller
         return view('landing/index', compact('countries'));
     }
 
+    public function privacy()
+    {
+        return view('landing.privacy');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

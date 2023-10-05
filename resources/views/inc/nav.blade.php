@@ -6,6 +6,6 @@
         <a class="nav-link {{ Request::is('country*') ? 'active' : '' }}" aria-current="page" href="{{ route('country.index') }}">All Countries</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="#">Privacy</a>
+        <a class="nav-link" aria-current="page" href="{{ route('privacy') }}">Privacy Policy</a>
     </li>
 </ul>
