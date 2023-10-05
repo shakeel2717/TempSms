@@ -14,7 +14,7 @@
                 <div class="content-area my-4">
                     <div class="row g-4">
                         @foreach ($countries as $country)
-                            @if ($loop->iteration % 7 == 0)
+                            @if ($loop->iteration % 6 == 0)
                                 <div class="col-md-12">
                                     <div class="text-center my-3">
                                         @include('inc.ads.sky')

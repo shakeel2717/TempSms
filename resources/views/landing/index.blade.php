@@ -16,12 +16,7 @@
         <div class="content-area my-4">
             <div class="row g-4">
                 @foreach ($countries as $country)
-                    @if ($loop->iteration % 7 == 0)
-                        <div class="col-md-12">
-                            <div class="text-center my-3">
-                                @include('inc.ads.sky')
-                            </div>
-                        </div>
+                    @if ($loop->iteration % 6 == 0)
                         <div class="col-md-4">
                             <a href="{{ route('country.show', ['country' => $country->name]) }}" class="text-decoration-none">
                                 <div class="card border-0 border-top border-primary border-5 bg-light text-center">
@@ -35,9 +30,15 @@
                                 </div>
                             </a>
                         </div>
+                        <div class="col-md-12">
+                            <div class="text-center my-3">
+                                @include('inc.ads.sky')
+                            </div>
+                        </div>
                     @else
                         <div class="col-md-4">
-                            <a href="{{ route('country.show', ['country' => $country->name]) }}" class="text-decoration-none">
+                            <a href="{{ route('country.show', ['country' => $country->name]) }}"
+                                class="text-decoration-none">
                                 <div class="card border-0 border-top border-primary border-5 bg-light text-center">
                                     <div class="flag-area pt-4 mb-3">
                                         <img src="{{ $country->flag }}" srcset="{{ $country->flag }} 2x" width="100"
