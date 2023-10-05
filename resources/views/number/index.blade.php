@@ -20,6 +20,21 @@
                                         @include('inc.ads.sky')
                                     </div>
                                 </div>
+                                <div class="col-md-4">
+                                    <a href="{{ route('number.show', ['number' => $number->number]) }}"
+                                        class="text-decoration-none">
+                                        <div class="card border-0 border-top border-primary border-5 bg-light text-center">
+                                            <div class="flag-area pt-4 mb-3">
+                                                <img src="{{ $number->country->flag }}"
+                                                    srcset="{{ $number->country->flag }} 2x" width="100" alt="Ukraine">
+                                            </div>
+                                            <div class="country-name text-center">
+                                                <h4 class="text-dark">{{ $number->country->name }}</h4>
+                                                <h5>{{ $number->number }}</h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
                             @else
                                 <div class="col-md-4">
                                     <a href="{{ route('number.show', ['number' => $number->number]) }}"
